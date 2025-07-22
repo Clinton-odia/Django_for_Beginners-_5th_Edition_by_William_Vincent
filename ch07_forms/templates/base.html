@@ -19,6 +19,20 @@ Source+Sans+Pro:400" rel="stylesheet">
 </div>
 <!-- end new HTML... -->
 </header>
+<!-- start new HTML... -->
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}!</p>
+<form action="{% url 'logout' %}" method="post">
+{% csrf_token %}
+<button type="submit">Log Out</button>
+
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %}
+<!-- end new HTML... -->
 {% block content %}
 {% endblock content %}
 </div>
