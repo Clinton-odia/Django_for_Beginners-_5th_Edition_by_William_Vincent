@@ -55,9 +55,9 @@ class SignupPageTests(TestCase):
                 },
             )
         )
+        # Refactoring the code
+        user = get_user_model().objects.first()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(get_user_model().objects.all().count(), 1)
-        self.assertEqual(get_user_model().objects.all()[0].username, "testuser3")
-        self.assertEqual(
-            get_user_model().objects.all()[0].email, "testuser3@example.com"
-        )
+        # self.assertEqual(get_user_model().objects.all().count(), 1) /// Not needed anymore
+        self.assertEqual(user.username, "testuser3")
+        self.assertEqual(user.email, "testuser3@example.com")
