@@ -8,6 +8,7 @@
 
 <hr>
 <h4>Comments</h4>
+<!-- Debug the comment -->
 {% for comment in object.comment_set.all %}
   <p><strong>{{ comment.author }}</strong> &middot; {{ comment.comment }}</p>
 {% empty %}
